@@ -1,12 +1,12 @@
-package br.com.alura.screenmatch.principal;
-
-import br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
-import br.com.alura.screenmatch.calculos.FiltroRecomendacao;
-import br.com.alura.screenmatch.modelos.Episodio;
-import br.com.alura.screenmatch.modelos.Filme;
-import br.com.alura.screenmatch.modelos.Serie;
+package main.java.br.com.alura.screenmatch.principal;
 
 import java.util.ArrayList;
+
+import main.java.br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
+import main.java.br.com.alura.screenmatch.calculos.FiltroRecomendacao;
+import main.java.br.com.alura.screenmatch.modelos.Episodio;
+import main.java.br.com.alura.screenmatch.modelos.Filme;
+import main.java.br.com.alura.screenmatch.modelos.Serie;
 
 public class Principal {
     public static void main(String[] args) {
@@ -20,9 +20,6 @@ public class Principal {
         meuFilme.avalia(10);
         System.out.println("Total de avaliações: " + meuFilme.getTotalDeAvaliacoes());
         System.out.println(meuFilme.pegaMedia());
-        //meuFilme.somaDasAvaliacoes = 10;
-        //meuFilme.totalDeAvaliacoes = 1;
-        //System.out.println(meuFilme.pegaMedia());
 
         Serie lost = new Serie("Lost", 2000);
         lost.exibeFichaTecnica();
