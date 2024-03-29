@@ -1,0 +1,26 @@
+[
+  {
+    "nome": "Dogville",
+    "anoDeLancamento": 2003,
+    "incluidoNoPlano": false,
+    "somaDasAvaliacoes": 0.0,
+    "totalDeAvaliacoes": 0,
+    "duracaoEmMinutos": 178
+  },
+  {
+    "nome": "Top Gun",
+    "anoDeLancamento": 1986,
+    "incluidoNoPlano": false,
+    "somaDasAvaliacoes": 0.0,
+    "totalDeAvaliacoes": 0,
+    "duracaoEmMinutos": 109
+  },
+  {
+    "nome": "Matrix",
+    "anoDeLancamento": 1993,
+    "incluidoNoPlano": false,
+    "somaDasAvaliacoes": 0.0,
+    "totalDeAvaliacoes": 0,
+    "duracaoEmMinutos": 60
+  }
+]

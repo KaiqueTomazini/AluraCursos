@@ -1,43 +1,36 @@
 package main.java.br.com.alura.screenmatch.principal;
 
 import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-import com.google.gson.*;
-
 import main.java.br.com.alura.screenmatch.modelos.Titulo;
-import main.java.br.com.alura.screenmatch.modelos.TituloOmdb;
 
 public class PrincipalComBusca {
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Digite um filme para buscar: ");
-        String busca = scanner.nextLine();
-        String uri = "https://www.omdbapi.com/?t=" + busca.replace(" ", "+") + "&apikey=2960c35a";
-        scanner.close();
+        String search = "";
+        List<Titulo> title = new ArrayList<>();
+        System.out.println("Caso queira parar de buscar filmes, basta escrever sair para finalizar a busca!");
+        System.out.println("If you want to stop searching for films, just type exit to end the search!");
 
-        try {
-            HttpClient client = HttpClient.newHttpClient();
-            HttpRequest request = HttpRequest.newBuilder().uri(URI.create(uri)).build();
-            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            
-            String json = response.body();
+        while (!search.equalsIgnoreCase("sair") || !search.equalsIgnoreCase("exit")) {
 
-            Gson gson = new GsonBuilder()
-                    .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
-                    .create();
+            System.out.println("Digite um filme para buscar(Enter a movie name to search): ");
+            search = scanner.nextLine();
 
-            TituloOmdb meuTituloOmdb = gson.fromJson(json, TituloOmdb.class);
-            Titulo meuTitulo = new Titulo(meuTituloOmdb);
+            if (search.equalsIgnoreCase("sair") || search.equalsIgnoreCase("exit")) {
+                scanner.close();
+                break;
+            }
 
-            System.out.println(meuTituloOmdb);
+            ConsultaApiFilmes consultaApiFilmes = new ConsultaApiFilmes();
+            title.add(consultaApiFilmes.consultaFilme(search));
+
         }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+        GeraArquivo geraArquivo = new GeraArquivo();
+        geraArquivo.criaJson(title);
     }
 }
