@@ -1,7 +1,7 @@
 package main.java.br.com.alura.screenmatch.principal;
 
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+
 import java.net.URI;
 import java.net.URLEncoder;
 import java.net.http.HttpClient;
